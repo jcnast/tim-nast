@@ -52,20 +52,55 @@
 	</div>
 </div>
 <div class='row' style='margin: 0px'>
-	<div class="nav-tabs-custom col-lg-6" style="cursor: move; padding: 0px; width: 49%">
-    <!-- Tabs within a box -->
-    <ul class="nav nav-tabs pull-right">
-        <li class="active"><a href="#all-songs" data-toggle="tab">All</a></li>
-        <li><a href="#recent-song" data-toggle="tab">Recent</a></li>
-        <li class="pull-left header"><i class="fa fa-soundcloud"></i> Soundcloud</li>
-    </ul>
-    <div class="tab-content">
-      <!-- Morris chart - Sales -->
-      <div class="chart tab-pane active" id="all-songs" style="position: relative; height: 300px;">
-      </div>
-      <div class="chart tab-pane" id="recent-song" style="position: relative; height: 300px;">
-      </div>
-  	</div>
+	<!-- Intro -->
+	<div class='col-lg-6' style='padding-left: 0px'>
+		<div class="box box-warning">
+			<div class="box-header" style="cursor: move;">
+				<i class="fa fa-comments-o"></i>
+				<h3 class="box-title">Intro</h3>
+			</div>
+			<div class="slimScrollDiv" style="position: relative; overflow: hidden; width:">
+				<div class="box-body chat" id="chat-box" style="overflow: hidden;">
+					<div id="lipsum">
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at nibh malesuada, tincidunt sapien in, accumsan neque. Cras ultrices quam sed quam facilisis, at lobortis justo ultrices. Aenean interdum vel turpis nec tincidunt. Donec interdum eget mauris ac auctor. Fusce at lacinia odio, vel imperdiet arcu. Nam porttitor nibh quis justo viverra fringilla. Aliquam pharetra pharetra velit, et vulputate est ultricies sit amet. Quisque commodo tincidunt lobortis. Nam tristique purus a nunc semper, eu molestie est tristique. Phasellus at lorem tempus, venenatis ipsum nec, accumsan neque. Sed aliquam non est sit amet dignissim. In vel mollis purus. Vivamus vitae lorem diam. Praesent tempor eleifend fermentum. Proin dapibus nibh eget dolor laoreet, nec sodales tortor condimentum.
+						</p>
+						<p>
+							Quisque semper suscipit dui, vel pretium diam ultrices at. In eget risus nulla. Mauris fermentum nulla eget pharetra dignissim. Donec tincidunt justo leo, nec mollis leo auctor et. Sed nisi ipsum, ullamcorper in nibh a, varius consequat massa. Integer et libero tortor. Nullam efficitur placerat sem vitae feugiat. In hac habitasse platea dictumst. Vestibulum metus nulla, lobortis egestas ullamcorper sit amet, condimentum eu sem. Suspendisse at enim nec est vulputate molestie. Pellentesque sit amet neque orci.
+						</p>
+						<p>
+							Sed eu consequat urna. Aenean nec congue lacus. Sed scelerisque maximus ex, non volutpat neque mollis in. Nunc justo odio, ornare a quam non, tristique aliquam lorem. Donec maximus velit ut gravida ullamcorper. Suspendisse ac est felis. Maecenas consequat, magna nec placerat hendrerit, sem velit facilisis risus, non lobortis mi augue posuere ipsum. Donec bibendum fermentum lacus, non vestibulum ex ornare pulvinar. Curabitur bibendum quis ex nec sollicitudin. Ut in nulla tempor, rhoncus arcu eget, imperdiet odio. Proin nec elit est. Phasellus laoreet hendrerit lacus sed faucibus.
+						</p>
+					</div>
+				</div>
+			</div>
+			<!-- <div class="box-footer">
+        <div class="input-group">
+        </div>
+      </div> -->
+		</div>
+	</div>
+	<!-- Soundcloud -->
+	<div class='col-lg-6' style='padding-right: 0px'>
+		<div class="nav-tabs-custom">
+			<!-- Tabs within a box -->
+			<ul class="nav nav-tabs pull-right">
+					<li class="active"><a href="#all-songs" data-toggle="tab">All</a></li>
+					<li><a href="#recent-song" data-toggle="tab">Recent</a></li>
+					<li class="pull-left header"><i class="fa fa-soundcloud"></i> Soundcloud</li>
+			</ul>
+			<div class="tab-content">
+				<!-- Morris chart - Sales -->
+				<div class="chart tab-pane active" id="all-songs" style="position: relative;">
+					<iframe class="iframe" width="100%" height="465" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https://soundcloud.com/tim-nast&amp;auto_play=false&amp;buying=true&amp;liking=true&amp;download=true&amp;sharing=true&amp;show_artwork=true&amp;show_comments=true&amp;show_playcount=true&amp;show_user=true&amp;hide_related=false&amp;visual=true&amp;start_track=0&amp;callback=true">
+					</iframe>
+				</div>
+				<div class="chart tab-pane" id="recent-song" style="position: relative;">
+					<iframe class="iframe" width="100%" height="465" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=http://api.soundcloud.com/tracks/173325401&amp;auto_play=false&amp;buying=true&amp;liking=true&amp;download=true&amp;sharing=true&amp;show_artwork=true&amp;show_comments=true&amp;show_playcount=true&amp;show_user=true&amp;hide_related=false&amp;visual=true&amp;start_track=0&amp;callback=true">
+					</iframe>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
 {% endblock %}
