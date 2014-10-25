@@ -1,0 +1,71 @@
+{% extends 'skin.html' %}
+
+{% block header %}
+	Welcome
+<small>enjoy</small>
+{% endblock %}
+
+{% block header-image %}
+	<img src='/static/img/piano-keys.png' style='height:75%; width: 100%;'>
+{% endblock %}
+
+{% block content %}
+<!-- Small boxes (Stat box) -->
+<div class="row">
+	<div class="col-lg-6 col-xs-12">
+		<!-- small box -->
+		<div class="small-box bg-yellow">
+			<div class="inner">
+				<h3>
+					release name
+				</h3>
+				<p>
+					New Release
+				</p>
+			</div>
+			<div class="icon">
+					<i class="fa fa-music"></i>
+			</div>
+			<a href="#" class="small-box-footer">
+					More info <i class="fa fa-arrow-circle-right"></i>
+			</a>
+		</div>
+	</div><!-- ./col -->
+	<div class="col-lg-6 col-xs-12">
+		<!-- small box -->
+		<div class="small-box bg-green" style='background: linear-gradient(#f70,#f30);'>
+			<div class="inner">
+				<h3>
+					Soundcloud
+				</h3>
+				<p>
+					My Soundcloud (icon error on font-awesome's side)
+				</p>
+			</div>
+			<div class="icon">
+				<i class="fa fa-soundcloud"></i>
+			</div>
+			<a href="#" class="small-box-footer">
+				Check it out <i class="fa fa-arrow-circle-right"></i>
+			</a>
+		</div>
+	</div>
+</div>
+<div class='row' style='margin: 0px'>
+	<div class="nav-tabs-custom col-lg-6" style="cursor: move; padding: 0px; width: 49%">
+    <!-- Tabs within a box -->
+    <ul class="nav nav-tabs pull-right">
+        <li class="active"><a href="#all-songs" data-toggle="tab">All</a></li>
+        <li><a href="#recent-song" data-toggle="tab">Recent</a></li>
+        <li class="pull-left header"><i class="fa fa-soundcloud"></i> Soundcloud</li>
+    </ul>
+    <div class="tab-content">
+      <!-- Morris chart - Sales -->
+      <div class="chart tab-pane active" id="all-songs" style="position: relative; height: 300px;">
+      </div>
+      <div class="chart tab-pane" id="recent-song" style="position: relative; height: 300px;">
+      </div>
+  	</div>
+	</div>
+</div>
+{% endblock %}
