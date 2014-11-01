@@ -38,6 +38,11 @@
 		</a>
 		<!-- Header Navbar: style can be found in header.less -->
 		<nav class="navbar navbar-static-top" role="navigation" style='background-color: #000000'>
+			<div class='navbar-left'>
+				<ul class="nav navbar-nav">
+					<li style='font-family: "Source Sans Pro", sans-serif; font-size: 20px;'><a href='#'><i class='fa fa-book'></i> Bio</a></li>
+				</ul>
+			</div>
 			<div class="navbar-right">
 				<ul class="nav navbar-nav">
 					<li class="dropdown messages-menu">
@@ -46,8 +51,11 @@
               <!-- <span class="label label-success">4</span> -->
             </a>
             <ul class="dropdown-menu">
-              <li class="header">Options</li>
-              <li class="footer"><a href="#">Logout</a></li>
+              <!-- <li class="header" style='text-align: center; background-color: rgb(128,128,128);'></li> -->
+              <li {% if user == 'True' %}hidden{% else %}{% endif %}><a href='/sign-up/'><i class='fa fa-user'></i>Sign-Up</a></li>
+              <li {% if user == 'True' %}hidden{% else %}{% endif %}><a href='/sign-in/'><i class='fa fa-sign-in'></i>Login</a></li>
+              <li {% if user == 'True' %}{% else %}hidden{% endif %}><a href="/sign-out/"><i class='fa fa-sign-out'></i>Logout</a></li>
+              <li class="footer" style='text-align: center; background-color: rgb(128,128,128);'><i class='fa fa-music'></i></li>
             </ul>
           </li>
 				</ul>
@@ -70,13 +78,12 @@
 				</div>
 				<div class='row'>
 					{% block header-image %}
-						No Image
 					{% endblock %}
 				</div>
 				<hr>
 			</div>
 			<!-- Main content -->
-			<div class="content col-lg-12">
+			<div class="content col-lg-12" style='min-height: 70%;'>
 				{% block content %}
 					<p> No content provided</p>
 				{% endblock %}

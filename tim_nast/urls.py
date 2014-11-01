@@ -12,5 +12,8 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^test/$', views.test),
+    url(r'^sign-in/', views.sign_in),
+    url(r'^sign-out/', views.sign_out),
+    url(r'^sign-up/', views.sign_up),
+    url(r'^$', views.home),
 ) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -1,0 +1,43 @@
+{% extends 'skin.html' %}
+
+{% block header %}
+	Sign In
+<small><br>join the community</small>
+{% endblock %}
+
+{% block header-image %}
+{% endblock %}
+
+{% block content %}
+<!-- Small boxes (Stat box) -->
+<div class="row">
+	<div class='col-lg-3' style='margin-left: 40%;'>
+		<form role="form" action='/sign-in/' method='POST'>
+			{% csrf_token %}
+			{% if error %}
+				<div class='alert alert-danger' style='margin: 0px; padding: 5px; text-align: center'>
+					<p>{{ error }}</p>
+				</div>
+			{% endif %}
+		  <div class="form-group">
+		    <label for="username">Username</label>
+		    <input type="username" class="form-control" id="username" name='username' placeholder="Enter Username">
+		  </div>
+		  <div class="form-group">
+		    <label for="exampleInputPassword1">Password</label>
+		    <input type="password" class="form-control" id="password" name='password' placeholder="Enter Password">
+		  </div>
+		  <div class='pull-right col-lg-6' style='text-align: right;'>
+		  	<button type="submit" class="btn btn-info">Sign In</button>
+		  </div>
+		  <div class='pull-left col-lg-6' style='text-align: left;'>
+		  	<a href='/sign-up/'><button type='button' id='sign-up' class="btn btn-warning">Sign Up</button></a>
+		  </div>
+		</form>
+	</div>
+</div>
+
+<script>
+
+</script>
+{% endblock %}

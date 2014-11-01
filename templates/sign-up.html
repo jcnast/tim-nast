@@ -1,0 +1,110 @@
+{% extends 'skin.html' %}
+
+{% block header %}
+	Sign Up
+<small><br>join the community</small>
+{% endblock %}
+
+{% block header-image %}
+{% endblock %}
+
+{% block content %}
+<!-- Small boxes (Stat box) -->
+<div class="row">
+	<div class='col-lg-3' style='margin-left: 40%;'>
+		<form id='identicalForm' role="form" action='/sign-up/' method='POST'>
+			{% csrf_token %}
+			{% if error %}
+				<div class='alert alert-danger' style='margin: 0px; padding: 5px; text-align: center'>
+					<p>{{ error }}</p>
+				</div>
+			{% endif %}
+			<div class="form-group">
+				<label for="username">Username</label>
+				<input type="username" class="form-control" id="username" name='username' placeholder='Enter username' value="{% if info.username %}{{info.username}}{% else %}{% endif %}">
+			</div>
+			<div class="form-group">
+				<label for='email'>Email <i id='email_icon' title='Must contain @' style='color: red;'></i></label>
+				<input type='text' class="form-control" id="email" name='email' placeholder='Enter email address' value="{% if info.email %}{{info.email}}{% else %}{% endif %}">
+			</div>
+			<div class="form-group">
+				<label class="control-label">Password <i id='pass_icon' title='Passwords do not match' style='color: red;'></i></label>
+				<input type="password" class="form-control" id='password' name="password" placeholder='Enter password' value='{% if info.password %}{{info.password}}{% else %}{% endif %}'>
+			</div>
+			<div class="form-group">
+				<label class="control-label">Retype password <i id='cpass_icon' title='Passwords do not match' style='color: red;'></i></label>
+				<input type="password" class="form-control" id='cpassword' name="confirmPassword" placeholder='Retype password' value='{% if info.confirmPassword %}{{info.confirmPassword}}{% else %}{% endif %}'>
+			</div>
+			<div class='pull-right col-lg-6' style='text-align: right;'>
+				<i id='submit_icon' title='Errors must be solved' style='color: red; font-size: 150%'></i>
+				<button id='submit' type="submit" class="btn btn-info">Sign Up</button>
+			</div>
+			<div class='pull-left col-lg-6' style='text-align: left;'>
+				<a href='/sign-in/'><button type='button' id='sign-up' class="btn btn-warning">Sign In</button></a>
+			</div>
+		</form>
+	</div>
+</div>
+
+<!-- jQuery 2.1.1 -->
+<script src='/static/js/jquery-2.1.1.js'></script>
+<script>
+	
+	$(document).ready(function(){
+
+		$('#cpassword').focusout(function(){
+			console.log('dsf');
+			if ($(this).val() != $('#password').val())
+			{
+				$('#cpass_icon').addClass('fa fa-times');
+				$('#pass_icon').addClass('fa fa-times');
+				$('#submit').attr('disabled','disabled');
+				$('#submit_icon').addClass('fa fa-times');
+			}else
+			{
+				$('#cpass_icon').removeClass('fa fa-times');
+				$('#pass_icon').removeClass('fa fa-times');
+				if ($('#email').val().indexOf('@') != -1 || $('#email').val() == ''){
+					$('#submit_icon').removeClass('fa fa-times');
+					$('#submit').removeAttr('disabled');
+				}
+			}
+		})
+
+		$('#password').focusout(function(){
+			if ($(this).val() != $('#cpassword').val())
+			{
+				$('#pass_icon').addClass('fa fa-times');
+				$('#cpass_icon').addClass('fa fa-times');
+				$('#submit').attr('disabled','disabled');
+				$('#submit_icon').addClass('fa fa-times');
+			}else
+			{
+				$('#pass_icon').removeClass('fa fa-times');
+				$('#cpass_icon').removeClass('fa fa-times');
+				if ($('#email').val().indexOf('@') != -1 || $('#email').val() == ''){
+					$('#submit_icon').removeClass('fa fa-times');
+					$('#submit').removeAttr('disabled');
+				}
+			}
+		})
+
+		$('#email').focusout(function(){
+			if ($(this).val().indexOf('@') == -1 && $('#email').val() != '') {
+			  $('#email_icon').addClass('fa fa-times');
+			  $('#submit').attr('disabled','disabled');
+			  $('#submit_icon').addClass('fa fa-times');
+			} else {
+			  $('#email_icon').removeClass('fa fa-times');
+			  if ($('#pass_icon').hasClass('fa fa-times')){
+			  	return false
+				}else{
+					$('#submit_icon').removeClass('fa fa-times');
+					$('#submit').removeAttr('disabled');
+				}
+			}
+		})
+	})
+
+</script>
+{% endblock %}
