@@ -11,6 +11,9 @@ def home(request):
 		user = 'True'
 	return render(request, 'welcome-page.html', {'user': user})
 
+def about(request):
+	return render(request, 'about.html')
+
 def sign_in(request):
 
 	if request.method=='POST':
