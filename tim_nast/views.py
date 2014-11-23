@@ -4,15 +4,39 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.template import RequestContext
+import simplejson
+from requests import get
+
+url = 'http://api.soundcloud.com/users/tim-nast/tracks.json?client_id=eefc5d8629bc73f7a72c3af35b62bc64'
+def soundcloud_api():
+	data = simplejson.loads(get('%s' % url, verify=False).text)
+	return data
 
 def home(request):
 	user= 'False'
 	if request.user.is_authenticated():
 		user = 'True'
-	return render(request, 'welcome-page.html', {'user': user})
 
-def about(request):
-	return render(request, 'about.html')
+	data = soundcloud_api() # get all information about all tracks
+	data.sort(key=lambda item:item['created_at'], reverse=True) # order tracks by release data
+
+	latest_track = data[0]
+
+	context = {'user': user, 'latest_track': latest_track}
+	return render(request, 'welcome-page.html', context)
+
+def bio(request):
+	user= 'False'
+	if request.user.is_authenticated():
+		user = 'True'
+
+	data = soundcloud_api() # get all information about all tracks
+	data.sort(key=lambda item:item['created_at'], reverse=True) # order tracks by release data
+
+	latest_track = data[0]
+
+	context = {'user': user, 'latest_track': latest_track}
+	return render(request, 'bio.html', context)
 
 def sign_in(request):
 

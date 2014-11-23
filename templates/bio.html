@@ -1,12 +1,12 @@
 {% extends 'skin.html' %}
 
 {% block header %}
-	Welcome
-<small><br>enjoy</small>
+<!-- 	Welcome
+<small><br>enjoy</small> -->
 {% endblock %}
 
 {% block header-image %}
-	<img src='/static/img/piano-keys.png' style='height: 75%; width: 100%;'>
+	<img src='/static/img/drawing.png' style='height: 100%; width: 100%;'>
 {% endblock %}
 
 {% block content %}
@@ -17,7 +17,7 @@
 		<div class="box box-warning">
 			<div class="box-header">
 				<i class="fa fa-info-circle"></i>
-				<h3 class="box-title">About</h3>
+				<h3 class="box-title">Bio</h3>
 			</div>
 			<div class="slimScrollDiv" style="position: relative; overflow: hidden; width:">
 				<div class="box-body chat" id="chat-box" style="overflow: hidden;">
@@ -72,7 +72,7 @@
 					</iframe>
 				</div>
 				<div class="chart tab-pane" id="recent-song" style="position: relative;">
-					<iframe class="iframe" width="100%" height="465" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=http://api.soundcloud.com/tracks/173325401&amp;auto_play=false&amp;buying=true&amp;liking=true&amp;download=true&amp;sharing=true&amp;show_artwork=true&amp;show_comments=true&amp;show_playcount=true&amp;show_user=true&amp;hide_related=false&amp;visual=true&amp;start_track=0&amp;callback=true">
+					<iframe class="iframe" width="100%" height="465" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=http://api.soundcloud.com/tracks/{{ latest_track.id }}&amp;auto_play=false&amp;buying=true&amp;liking=true&amp;download=true&amp;sharing=true&amp;show_artwork=true&amp;show_comments=true&amp;show_playcount=true&amp;show_user=true&amp;hide_related=false&amp;visual=true&amp;start_track=0&amp;callback=true">
 					</iframe>
 				</div>
 			</div>

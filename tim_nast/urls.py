@@ -11,10 +11,10 @@ urlpatterns = patterns('',
     # url(r'^$', 'tim_nast.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
-    url(r'^admin/$', include(admin.site.urls)),
+    url(r'^admin/', include(admin.site.urls)),
     url(r'^sign-in/$', views.sign_in),
     url(r'^sign-out/$', views.sign_out),
     url(r'^sign-up/$', views.sign_up),
     url(r'^$', views.home),
-    url(r'^about/$', views.about),
+    url(r'^bio/$', views.bio),
 ) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
