@@ -41,6 +41,7 @@
 			<div class='navbar-left'>
 				<ul class="nav navbar-nav">
 					<li style='font-family: "Source Sans Pro", sans-serif; font-size: 20px;'><a href='/bio/'><i class='fa fa-book'></i> Bio</a></li>
+					<li style='font-family: "Source Sans Pro", sans-serif; font-size: 20px;'><a {% if user == 'False' %}data-toggle="modal" data-target="#modal-msg" style='cursor: pointer;'{% else %}href='/downloads/'{% endif %}><i class='fa fa-cloud-download'></i> Downloads</a></li>
 				</ul>
 			</div>
 			<div class="navbar-right">
@@ -83,6 +84,32 @@
 			</div>
 		</div>
 	</div>
+
+	<style>
+        .modal-msg-main{
+            webkit-box-shadow: 0 0px 20px rgba(90,187,30,0.8);
+            box-shadow: 0 0px 20px rgba(90,187,30,0.8);
+        }
+	</style>
+
+	<!-- Modal -->
+	<div class="modal fade" id="modal-msg" tabindex="-1" role="dialog" aria-labelledby="modal-msglabel" aria-hidden="true">
+	    <div class="modal-dialog modal-lg">
+	        <div class="modal-content modal-msg-main">
+	            <div class="modal-body">
+	            	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	                <br>
+	                <div class="col-lg-12 text-center"><h3>You must be logged in to acces this page </h3></div>
+	                <hr>
+	                <h4 class='text-center'>If you wish to access the free downloads, please either <a href='/sign-up/'>sign-up</a> or <a href='/sign-in/'>log-in</a>.</h4>
+	                <br>
+	            </div>
+	        </div>
+	        <!-- /.modal-content -->
+	    </div>
+	    <!-- /.modal-dialog -->
+	</div>
+	<!-- /.modal -->
 
 <!-- jQuery 2.1.1 -->
 <script src='/static/js/jquery-2.1.1.js'></script>

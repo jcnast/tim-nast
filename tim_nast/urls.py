@@ -17,4 +17,5 @@ urlpatterns = patterns('',
     url(r'^sign-up/$', views.sign_up),
     url(r'^$', views.home),
     url(r'^bio/$', views.bio),
+    url(r'^downloads/$', views.downloads),
 ) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

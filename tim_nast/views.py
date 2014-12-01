@@ -38,6 +38,14 @@ def bio(request):
 	context = {'user': user, 'latest_track': latest_track}
 	return render(request, 'bio.html', context)
 
+def downloads(request):
+	user= 'False'
+	if request.user.is_authenticated():
+		user = 'True'
+	
+	context = {'user': user, 'files': 'songs and stuff for download'}
+	return render(request, 'downloads.html',context)
+
 def sign_in(request):
 
 	if request.method=='POST':
